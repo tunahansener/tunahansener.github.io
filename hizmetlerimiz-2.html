@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hizmetlerimiz | Lavanta Garden Park</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A1A2E;
+    --navy:#13273F;
+    --gold:#C9A659;
+    --gold-light:#E4CD8D;
+    --cream:#F6F1E7;
+    --ink:#1B1B1B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  header{
+    background:var(--navy-deep);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 6%;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--cream);
+  }
+  .logo span{color:var(--gold);}
+  .back-link{
+    color:var(--gold-light);
+    text-decoration:none;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border:1px solid var(--gold);
+    padding:10px 20px;
+    border-radius:4px;
+    transition:background 0.3s, color 0.3s;
+  }
+  .back-link:hover{background:var(--gold); color:var(--navy-deep);}
+
+  /* Hero */
+  .hero{
+    background:var(--navy-deep);
+    color:var(--cream);
+    text-align:center;
+    padding:70px 6% 60px;
+  }
+  .hero h1{
+    font-size:clamp(2rem,4.5vw,3rem);
+    margin-bottom:18px;
+  }
+  .hero p{
+    color:var(--gold-light);
+    font-weight:300;
+    max-width:640px;
+    margin:0 auto;
+    font-size:1.05rem;
+  }
+
+  /* Hizmet listesi */
+  .service-list{
+    max-width:1100px;
+    margin:0 auto;
+    padding:60px 6%;
+  }
+  .service-list h2{
+    text-align:center;
+    font-size:clamp(1.5rem,3vw,2rem);
+    color:var(--navy-deep);
+    margin-bottom:40px;
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:24px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid #E8E1D3;
+    border-radius:6px;
+    padding:32px 24px;
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(19,39,63,0.1);
+  }
+  .service-card .icon{
+    font-size:2rem;
+    margin-bottom:14px;
+    display:block;
+  }
+  .service-card h3{
+    font-size:1.1rem;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+  }
+  .service-card p{
+    font-size:0.9rem;
+    color:#555;
+  }
+
+  /* Öne çıkan salon görseli */
+  .venue-feature{
+    position:relative;
+    background:var(--navy-deep);
+    color:var(--cream);
+    padding:0;
+  }
+  .venue-feature img{
+    width:100%;
+    display:block;
+    max-height:520px;
+    object-fit:cover;
+    opacity:0.55;
+  }
+  .venue-feature-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 6%;
+  }
+  .venue-feature-text h2{
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    margin-bottom:16px;
+  }
+  .venue-feature-text p{
+    color:var(--gold-light);
+    font-weight:300;
+    max-width:640px;
+    font-size:1.05rem;
+  }
+
+  /* Detay bölümleri */
+  .detail-section{
+    max-width:1100px;
+    margin:0 auto;
+    padding:70px 6%;
+  }
+  .detail-section h2{
+    text-align:center;
+    font-size:clamp(1.6rem,3.5vw,2.2rem);
+    color:var(--navy-deep);
+    margin-bottom:50px;
+  }
+  .detail-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:28px;
+  }
+  .detail-card{
+    background:#fff;
+    border-left:3px solid var(--gold);
+    border-radius:4px;
+    padding:30px 28px;
+    box-shadow:0 6px 20px rgba(19,39,63,0.06);
+  }
+  .detail-card h3{
+    font-size:1.15rem;
+    color:var(--navy-deep);
+    margin-bottom:12px;
+  }
+  .detail-card p{
+    font-size:0.92rem;
+    color:#555;
+  }
+
+  /* Kapanış CTA */
+  .cta-section{
+    background:var(--navy-deep);
+    color:var(--cream);
+    text-align:center;
+    padding:70px 6%;
+  }
+  .cta-section h2{
+    font-size:clamp(1.6rem,3.5vw,2.2rem);
+    margin-bottom:18px;
+  }
+  .cta-section p{
+    color:var(--gold-light);
+    font-weight:300;
+    max-width:560px;
+    margin:0 auto 30px;
+  }
+  .cta-buttons{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:4px;
+    text-decoration:none;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:transform 0.3s, background 0.3s;
+  }
+  .btn-solid{
+    background:var(--gold);
+    color:var(--navy-deep);
+  }
+  .btn-solid:hover{background:var(--gold-light); transform:translateY(-2px);}
+  .btn-outline{
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+  }
+  .btn-outline:hover{background:rgba(201,166,89,0.12); transform:translateY(-2px);}
+
+  footer{
+    background:var(--navy-deep);
+    color:#8A94A3;
+    text-align:center;
+    padding:24px 6%;
+    font-size:0.8rem;
+  }
+
+  @media (max-width:480px){
+    .venue-feature img{max-height:340px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Lavanta <span>Garden Park</span></div>
+  <a href="index.html" class="back-link">Anasayfaya Dön</a>
+</header>
+
+<section class="hero">
+  <h1>Hizmetlerimiz</h1>
+  <p>Düğününüzden kına gecenize, sünnetinizden kurumsal davetinize kadar her organizasyonu baştan sona sizinle birlikte planlıyor, o günün her detayını özenle tasarlıyoruz.</p>
+</section>
+
+<section class="service-list">
+  <h2>Neler Düzenliyoruz</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="icon">💍</span>
+      <h3>Düğün</h3>
+      <p>Nişandan gelin damat çıkışına kadar komple düğün organizasyonu.</p>
+    </div>
+    <div class="service-card">
+      <span class="icon">🎉</span>
+      <h3>Kına Gecesi</h3>
+      <p>Geleneksel kına ritüelleri, canlı müzik ve halay eşliğinde unutulmaz bir gece.</p>
+    </div>
+    <div class="service-card">
+      <span class="icon">👑</span>
+      <h3>Sünnet</h3>
+      <p>Mehteran takımı ve özel sahne düzeniyle çocuğunuz için görkemli bir kutlama.</p>
+    </div>
+    <div class="service-card">
+      <span class="icon">💐</span>
+      <h3>Nişan</h3>
+      <p>Zarif ve samimi bir atmosferde söz ve nişan törenleri.</p>
+    </div>
+    <div class="service-card">
+      <span class="icon">🏢</span>
+      <h3>Kurumsal Etkinlik</h3>
+      <p>Şirket toplantıları, ürün lansmanları, ödül geceleri ve yıl sonu galaları.</p>
+    </div>
+    <div class="service-card">
+      <span class="icon">🎓</span>
+      <h3>Özel Günler</h3>
+      <p>Mezuniyet törenleri, doğum günleri ve topluluk buluşmaları.</p>
+    </div>
+  </div>
+</section>
+
+<section class="venue-feature">
+  <img src="salon-hizmet.jpg" alt="Lavanta Garden Park Büyük Salon">
+  <div class="venue-feature-text">
+    <h2>Salonumuzda Her Detay Sizin İçin</h2>
+    <p>Kristal avizeler, geniş dans pisti ve modern sahne sistemiyle donatılmış salonumuzda, hayalinizdeki günü eksiksiz bir şekilde hayata geçiriyoruz.</p>
+  </div>
+</section>
+
+<section class="detail-section">
+  <h2>Organizasyon Detaylarımız</h2>
+  <div class="detail-grid">
+    <div class="detail-card">
+      <h3>Gelin Damat Girişi</h3>
+      <p>İlk dansınızı ve salona girişinizi, sizin hikayenize uygun bir kurguyla sahneye taşıyoruz; müzik seçiminden ışık düzenine kadar her ayrıntıyı birlikte planlıyoruz.</p>
+    </div>
+    <div class="detail-card">
+      <h3>Gösteri Efektleri</h3>
+      <p>Konfeti, kar yağdırma, sis makinesi ve dilek feneri gibi efektlerle ilk dansınızı ve gece boyunca özel anlarınızı görsel bir şovla süslüyoruz.</p>
+    </div>
+    <div class="detail-card">
+      <h3>Anı Defteri Köşesi</h3>
+      <p>Misafirlerinizin sizin için yazdığı dilek ve tebrikleri özel bir anı defterinde bir araya getiriyor, o günün duygusunu kalıcı hale getiriyoruz.</p>
+    </div>
+    <div class="detail-card">
+      <h3>Masa ve Salon Süsleme</h3>
+      <p>Çiçek, şamdan ve tema rengine uygun aksesuarlarla masalarınızı ve salonu, davetinizin karakterine uygun şekilde özenle düzenliyoruz.</p>
+    </div>
+    <div class="detail-card">
+      <h3>Görsel Anı Sunumu</h3>
+      <p>Talep eden çiftler için, geçmişten bugüne uzanan fotoğraflardan oluşan bir anı sunumunu gece boyunca ekranlarımızda misafirlerinizle paylaşıyoruz.</p>
+    </div>
+    <div class="detail-card">
+      <h3>Canlı Müzik ve Ekip</h3>
+      <p>Deneyimli müzisyen ve organizasyon ekibimizle, geceyi baştan sona canlı performansla renklendiriyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Hayalinizdeki Günü Birlikte Planlayalım</h2>
+  <p>Organizasyon ekibimiz, tarihinizden bütçenize kadar tüm detayları sizinle birlikte değerlendirmek için hazır.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/905398490035?text=Merhaba%2C%20Lavanta%20Garden%20Park%20hakk%C4%B1nda%20teklif%20almak%20istiyorum." class="btn btn-solid" target="_blank">WhatsApp Teklif Al</a>
+    <a href="tel:+905398490035" class="btn btn-outline">Bizi Arayın</a>
+  </div>
+</section>
+
+<footer>
+  &copy; Lavanta Garden Park — Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
