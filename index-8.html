@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="XgCEWAg31VCGNX7SWJ0pi5bp3drTlGTjhw-ItSTW6cA" />
+<title>Lavanta Garden Park | Düğün ve Organizasyon Salonu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A1A2E;
+    --navy:#13273F;
+    --gold:#C9A659;
+    --gold-light:#E4CD8D;
+    --cream:#F6F1E7;
+    --ink:#1B1B1B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  /* Header */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 6%;
+    transition:background 0.4s ease, padding 0.4s ease;
+  }
+  header.scrolled{
+    background:var(--navy-deep);
+    padding:14px 6%;
+    box-shadow:0 2px 20px rgba(0,0,0,0.25);
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    color:var(--cream);
+    letter-spacing:0.03em;
+  }
+  .logo span{color:var(--gold);}
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:38px;
+  }
+  nav a{
+    color:var(--cream);
+    text-decoration:none;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    opacity:0.9;
+    transition:opacity 0.3s, color 0.3s;
+    position:relative;
+  }
+  nav a:hover{color:var(--gold-light); opacity:1;}
+
+  .hamburger-btn{
+    width:44px; height:44px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:4px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    cursor:pointer;
+    margin-left:24px;
+    flex-shrink:0;
+  }
+  .hamburger-btn span{
+    width:20px; height:2px;
+    background:var(--cream);
+    display:block;
+  }
+  .mobile-menu{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:var(--navy-deep);
+    z-index:200;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu-close{
+    position:absolute;
+    top:24px; right:6%;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.3);
+    color:var(--cream);
+    width:44px; height:44px;
+    font-size:1.6rem;
+    border-radius:4px;
+    cursor:pointer;
+    line-height:1;
+  }
+  .mobile-menu-list{
+    list-style:none;
+    width:100%;
+    max-width:420px;
+    padding:0 24px;
+  }
+  .mobile-menu-list li{
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .mobile-menu-list a{
+    display:block;
+    padding:22px 8px;
+    color:var(--cream);
+    text-decoration:none;
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    text-align:center;
+    transition:color 0.3s;
+  }
+  .mobile-menu-list a:hover{color:var(--gold-light);}
+
+  /* Galeri bölümleri */
+  .gallery-section{
+    padding:90px 6%;
+    background:var(--cream);
+    scroll-margin-top:90px;
+  }
+  .gallery-section:nth-child(even){background:var(--navy-deep);}
+  .gallery-head{text-align:center; margin-bottom:50px;}
+  .gallery-head h2{
+    font-size:clamp(1.8rem,3.5vw,2.6rem);
+    color:var(--navy-deep);
+  }
+  .gallery-section.dark .gallery-head h2{color:var(--cream);}
+  .gallery-section.dark .section-eyebrow{color:var(--gold-light);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:14px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .gallery-slot{
+    aspect-ratio:1/1;
+    background:rgba(201,166,89,0.08);
+    border:1.5px dashed var(--gold);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--gold);
+    font-size:0.75rem;
+    padding:8px;
+  }
+  .gallery-section.dark .gallery-slot{
+    background:rgba(228,205,141,0.06);
+    color:var(--gold-light);
+  }
+
+  /* Hero */
+  .hero{
+    height:100vh;
+    min-height:600px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    color:var(--cream);
+    scroll-margin-top:0;
+  }
+  .hero-video{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    z-index:0;
+  }
+  .hero-overlay{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(180deg, rgba(10,26,46,0.55) 0%, rgba(10,26,46,0.35) 45%, rgba(10,26,46,0.9) 100%);
+    z-index:1;
+  }
+  .hero-inner{max-width:820px; padding:0 24px; position:relative; z-index:2;}
+  .hero-eyebrow{
+    color:var(--gold-light);
+    text-transform:uppercase;
+    letter-spacing:0.3em;
+    font-size:0.75rem;
+    margin-bottom:22px;
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    font-weight:500;
+    margin-bottom:20px;
+    line-height:1.15;
+  }
+  .hero p{
+    font-size:1.15rem;
+    font-weight:300;
+    color:#E8E2D4;
+    max-width:600px;
+    margin:0 auto 40px;
+  }
+  .btn{
+    display:inline-block;
+    padding:16px 40px;
+    background:var(--gold);
+    color:var(--navy-deep);
+    text-decoration:none;
+    font-size:0.85rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:600;
+    border-radius:2px;
+    transition:background 0.3s, transform 0.3s;
+  }
+  .btn:hover{background:var(--gold-light); transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+  }
+  .btn-outline:hover{background:var(--gold); color:var(--navy-deep);}
+
+  /* Şelale divider - signature element: flowing waterfall motif */
+  .divider{
+    width:100%;
+    height:70px;
+    overflow:hidden;
+    line-height:0;
+  }
+  .divider svg{width:100%;height:100%;display:block;}
+  .divider-line{
+    stroke:var(--gold);
+    stroke-width:1.4;
+    fill:none;
+    stroke-dasharray:6 10;
+    opacity:0.7;
+    animation:flow 6s linear infinite;
+  }
+  @keyframes flow{
+    to{stroke-dashoffset:-160;}
+  }
+
+  /* Intro section */
+  .intro{
+    padding:110px 6% 90px;
+    text-align:center;
+    max-width:760px;
+    margin:0 auto;
+    scroll-margin-top:90px;
+  }
+  .section-eyebrow{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.25em;
+    font-size:0.75rem;
+    font-weight:600;
+    margin-bottom:18px;
+    display:block;
+  }
+  .intro h2{
+    font-size:clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom:24px;
+    color:var(--navy-deep);
+  }
+  .intro p{
+    font-size:1.05rem;
+    color:#4a4a48;
+    font-weight:300;
+  }
+
+  /* Salons */
+  .salons{background:var(--navy-deep); padding:100px 0 60px; scroll-margin-top:90px;}
+  .salons-head{text-align:center; color:var(--cream); margin-bottom:70px; padding:0 6%;}
+  .salons-head h2{font-size:clamp(2rem,4vw,2.8rem); color:var(--cream);}
+  .salons-head .section-eyebrow{color:var(--gold-light);}
+
+  .salon-card{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:stretch;
+    max-width:1200px;
+    margin:0 auto 90px;
+    gap:0;
+  }
+  .salon-card:nth-child(odd) .salon-text{order:1;}
+  .salon-card:nth-child(odd) .salon-img{order:2;}
+  .salon-card:nth-child(even) .salon-text{order:2;}
+  .salon-card:nth-child(even) .salon-img{order:1;}
+
+  .salon-img{
+    flex:1 1 460px;
+    min-height:380px;
+    background:url('https://placehold.co/900x700/1B3350/C9A659?text=G%C3%B6rsel+Alan%C4%B1') center/cover no-repeat;
+  }
+  .salon-text{
+    flex:1 1 460px;
+    background:var(--navy);
+    color:var(--cream);
+    padding:60px 55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .capacity-row{
+    display:flex;
+    gap:34px;
+    margin-bottom:26px;
+  }
+  .capacity{
+    text-align:left;
+  }
+  .capacity .num{
+    font-family:'Fraunces', serif;
+    font-size:2rem;
+    color:var(--gold-light);
+    display:block;
+    line-height:1;
+  }
+  .capacity .label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:#B8C0CC;
+  }
+  .salon-text h3{
+    font-size:1.9rem;
+    color:var(--cream);
+    margin-bottom:18px;
+  }
+  .salon-text p{
+    color:#C9D0DA;
+    font-weight:300;
+    font-size:0.98rem;
+  }
+
+  @media (max-width:760px){
+    .salon-card:nth-child(odd) .salon-text,
+    .salon-card:nth-child(even) .salon-text{order:2;}
+    .salon-card:nth-child(odd) .salon-img,
+    .salon-card:nth-child(even) .salon-img{order:1;}
+    .salon-img{min-height:280px;}
+    .salon-text{padding:44px 30px;}
+    nav ul{gap:20px;}
+    nav a{font-size:0.7rem;}
+  }
+  @media (max-width:560px){
+    nav{display:none;}
+  }
+
+  /* CTA */
+  .cta{
+    background:var(--cream);
+    text-align:center;
+    padding:110px 6%;
+    scroll-margin-top:90px;
+  }
+  .cta h2{
+    font-size:clamp(1.8rem,3.5vw,2.6rem);
+    color:var(--navy-deep);
+    margin-bottom:20px;
+  }
+  .cta p{
+    max-width:520px;
+    margin:0 auto 40px;
+    color:#4a4a48;
+    font-weight:300;
+  }
+  .cta-buttons{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;}
+  .cta .btn{background:var(--navy-deep); color:var(--cream);}
+  .cta .btn:hover{background:var(--navy);}
+  .cta .btn-outline{border-color:var(--navy-deep); color:var(--navy-deep); background:transparent;}
+  .cta .btn-outline:hover{background:var(--navy-deep); color:var(--cream);}
+
+  /* Footer */
+  footer{
+    background:var(--navy-deep);
+    color:#B8C0CC;
+    padding:70px 6% 30px;
+  }
+  .footer-grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:50px;
+  }
+  .footer-grid h4{
+    font-family:'Fraunces', serif;
+    color:var(--cream);
+    font-size:1.1rem;
+    margin-bottom:18px;
+    font-weight:500;
+  }
+  .footer-grid p, .footer-grid a{
+    color:#B8C0CC;
+    text-decoration:none;
+    font-size:0.9rem;
+    display:block;
+    margin-bottom:10px;
+  }
+  .footer-grid a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    max-width:1200px;
+    margin:0 auto;
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:24px;
+    font-size:0.8rem;
+    text-align:center;
+    color:#7C8595;
+  }
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
+
+  .placeholder-note{
+    color:#7C8595;
+    font-style:italic;
+  }
+
+  /* Müzik / Oturma paneli */
+  .menu-panel{
+    display:none;
+    width:100%; max-width:480px; height:100%;
+    overflow-y:auto;
+    padding:90px 24px 50px;
+  }
+  .menu-panel.open{display:block;}
+  .mobile-menu.subopen .mobile-menu-list{display:none;}
+  .menu-panel-header{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom:26px;
+  }
+  .menu-back{
+    background:transparent; border:1px solid rgba(255,255,255,0.3);
+    color:var(--cream); width:40px; height:40px; border-radius:4px;
+    cursor:pointer; font-size:1.2rem; flex-shrink:0;
+  }
+  .menu-panel-header h3{color:var(--cream); font-size:1.35rem;}
+
+  .music-cat{border-bottom:1px solid rgba(255,255,255,0.12);}
+  .music-cat-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 2px; cursor:pointer; color:var(--gold-light);
+    font-family:'Fraunces', serif; font-size:1.05rem;
+  }
+  .music-cat-head .arrow{transition:transform .25s; color:var(--gold);}
+  .music-cat.open .music-cat-head .arrow{transform:rotate(90deg);}
+  .music-cat-body{display:none; padding:0 2px 18px;}
+  .music-cat.open .music-cat-body{display:block;}
+  .song-row{
+    display:flex; justify-content:space-between; align-items:center;
+    color:var(--cream); font-size:0.88rem; padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .song-row button{background:transparent; border:none; color:#C97C7C; font-size:1rem; cursor:pointer;}
+  .song-add{display:flex; gap:8px; margin-top:10px;}
+  .song-add input{
+    flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2);
+    border-radius:4px; padding:9px 10px; color:var(--cream); font-size:0.85rem;
+  }
+  .song-add input::placeholder{color:#8A93A0;}
+  .song-add button{
+    background:var(--gold); border:none; color:var(--navy-deep);
+    width:38px; border-radius:4px; font-weight:700; cursor:pointer; font-size:1.1rem;
+  }
+
+  .orchestra-badge{
+    text-align:center; color:var(--gold-light); letter-spacing:0.15em;
+    text-transform:uppercase; font-size:0.75rem; margin-bottom:14px; font-weight:600;
+  }
+  .stage-box{
+    background:var(--gold); color:var(--navy-deep); text-align:center;
+    padding:11px; border-radius:4px; font-weight:600; font-size:0.8rem;
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:24px;
+  }
+  .tables-wrap{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .table-box{
+    background:rgba(255,255,255,0.05); border:1px solid rgba(201,166,89,0.4);
+    border-radius:8px; padding:12px;
+  }
+  .table-box h4{color:var(--gold-light); font-size:0.85rem; margin-bottom:8px; font-family:'Fraunces', serif;}
+  .guest-tag{
+    background:rgba(255,255,255,0.08); color:var(--cream); font-size:0.76rem;
+    border-radius:4px; padding:6px 8px; margin-bottom:6px;
+  }
+  .table-add-btn{
+    width:100%; background:transparent; border:1px dashed var(--gold); color:var(--gold-light);
+    border-radius:4px; padding:7px; font-size:1rem; cursor:pointer; margin-top:2px;
+  }
+  .table-add-form{display:none; gap:6px; margin-top:8px;}
+  .table-add-form.open{display:flex;}
+  .table-add-form input{
+    flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2);
+    border-radius:4px; padding:7px 8px; color:var(--cream); font-size:0.76rem;
+  }
+  .table-add-form button{
+    background:var(--gold); border:none; color:var(--navy-deep);
+    width:32px; border-radius:4px; font-weight:700; cursor:pointer;
+  }
+
+  /* ===== İşletme Paneli ===== */
+  .biz-overlay{
+    display:none; position:fixed; inset:0; z-index:999;
+    background:var(--navy-deep); overflow-y:auto;
+  }
+  .biz-overlay.open{display:block;}
+  .biz-close{position:absolute; top:20px; right:20px;}
+  .biz-login-box{
+    max-width:340px; margin:14vh auto 0; text-align:center; padding:0 24px;
+  }
+  .biz-login-box h3{color:var(--cream); font-size:1.4rem; margin-bottom:24px;}
+  .biz-login-box input{
+    width:100%; margin-bottom:12px; background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.2); border-radius:4px; padding:11px 12px;
+    color:var(--cream); font-size:0.9rem;
+  }
+  .biz-err{color:#C97C7C; font-size:0.8rem; display:none; margin-bottom:10px;}
+  .biz-err.show{display:block;}
+  .biz-btn{
+    width:100%; background:var(--gold); border:none; color:var(--navy-deep);
+    padding:12px; border-radius:4px; font-weight:700; cursor:pointer; font-size:0.9rem; margin-top:6px;
+  }
+  .biz-btn-outline{background:transparent; border:1px solid var(--gold); color:var(--gold-light); margin-top:10px;}
+
+  .biz-panel-header{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 24px; border-bottom:1px solid rgba(255,255,255,0.1); position:sticky; top:0;
+    background:var(--navy-deep); z-index:2;
+  }
+  .biz-panel-header h3{color:var(--cream); font-size:1.1rem;}
+  .biz-panel-body{max-width:520px; margin:0 auto; padding:24px 24px 60px;}
+
+  .biz-cal-nav{display:flex; justify-content:space-between; align-items:center; color:var(--gold-light); margin-bottom:14px; font-family:'Fraunces',serif; font-size:1.1rem;}
+  .biz-cal-nav button{background:transparent; border:1px solid rgba(255,255,255,0.25); color:var(--cream); width:34px; height:34px; border-radius:4px; cursor:pointer;}
+  .biz-cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:12px;}
+  .biz-cal-grid .dname{color:#7C8595; font-size:0.7rem; text-align:center; padding-bottom:4px;}
+  .cal-day{
+    aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.05); border-radius:6px; color:var(--cream); font-size:0.82rem; cursor:pointer;
+    border:1px solid transparent;
+  }
+  .cal-day:hover{border-color:var(--gold);}
+  .cal-day.empty{background:transparent; cursor:default;}
+  .cal-day .dot{width:6px; height:6px; border-radius:50%; margin-top:3px;}
+  .cal-day .dot.dolu{background:#C97C7C;}
+  .cal-day .dot.bos{background:transparent;}
+  .biz-legend{display:flex; align-items:center; gap:6px; font-size:0.78rem; color:#B8C0CC; margin-bottom:30px;}
+  .biz-legend .dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .biz-legend .dot.dolu{background:#C97C7C;}
+  .biz-legend .dot.bos{background:#6FBF8B;}
+
+  .biz-subtitle{color:var(--gold-light); font-family:'Fraunces',serif; font-size:1.05rem; margin:20px 0 12px;}
+  .wed-row{
+    display:flex; justify-content:space-between; align-items:center; padding:12px 14px;
+    background:rgba(255,255,255,0.05); border-radius:6px; margin-bottom:8px; cursor:pointer; color:var(--cream); font-size:0.86rem;
+  }
+  .wed-row .tag{color:var(--gold-light); font-size:0.72rem; border:1px solid var(--gold); border-radius:20px; padding:2px 8px;}
+
+  .biz-label{display:block; color:#B8C0CC; font-size:0.78rem; margin:14px 0 6px;}
+  #weddingForm input, #weddingForm select, #weddingForm textarea{
+    width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2);
+    border-radius:4px; padding:10px 11px; color:var(--cream); font-size:0.88rem;
+  }
+  #weddingForm input:disabled{color:#8A93A0;}
+  .contract-box{
+    white-space:pre-line; background:rgba(255,255,255,0.05); border:1px dashed var(--gold);
+    border-radius:6px; padding:16px; font-size:0.82rem; color:var(--cream); margin-top:12px; line-height:1.7;
+  }
+  .wa-row{
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(255,255,255,0.05); border-radius:6px; padding:10px 12px; margin-bottom:8px;
+  }
+  .wa-name{display:block; color:var(--cream); font-size:0.85rem; font-weight:500;}
+  .wa-phone{display:block; color:#8A93A0; font-size:0.72rem; margin-top:2px;}
+  .wa-send-btn{
+    background:#25D366; border:none; color:#0b1a12; font-weight:700;
+    padding:8px 14px; border-radius:4px; cursor:pointer; font-size:0.8rem;
+  }
+  .code-err{color:#C97C7C; font-size:0.8rem; display:none; margin-top:10px;}
+  .code-err.show{display:block;}
+  .wed-code{
+    display:inline-block; background:rgba(201,166,89,0.15); color:var(--gold-light);
+    border:1px solid var(--gold); border-radius:4px; padding:4px 10px; font-size:0.85rem; letter-spacing:0.05em;
+  }
+  .biz-readonly-box{background:rgba(255,255,255,0.05); border-radius:6px; padding:12px 14px; margin-bottom:8px; color:var(--cream); font-size:0.85rem;}
+  .biz-readonly-box .cat{color:var(--gold-light); font-size:0.75rem; margin-bottom:4px; display:block;}
+</style>
+</head>
+<body>
+
+<header id="mainHeader">
+  <div class="logo">Lavanta <span>Garden Park</span></div>
+  <nav>
+    <ul>
+      <li><a href="#anasayfa">Anasayfa</a></li>
+      <li><a href="#salonlar">Salonlar</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Galeri Menüsü">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Kapat">&times;</button>
+  <ul class="mobile-menu-list">
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="galeri.html">Galeri</a></li>
+    <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+    <li><a href="tel:+905398490035">İletişim</a></li>
+    <li><a href="#" class="menu-open-panel" data-panel="musicPanel">Müzik Seçimi</a></li>
+    <li><a href="#" class="menu-open-panel" data-panel="seatingPanel">Oturma Planı</a></li>
+  </ul>
+
+  <div class="menu-panel" id="codeEntryPanel">
+    <div class="menu-panel-header">
+      <button class="menu-back" data-back>&larr;</button>
+      <h3>Düğün Kodunuz</h3>
+    </div>
+    <p class="placeholder-note" style="margin-bottom:14px;">Size WhatsApp'tan gönderilen düğün kodunu girin.</p>
+    <input type="text" id="codeEntryInput" placeholder="Örn: AE15" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2); border-radius:4px; padding:11px 12px; color:var(--cream); font-size:0.95rem; text-transform:uppercase;">
+    <p class="code-err" id="codeEntryErr">Bu koda ait bir düğün bulunamadı.</p>
+    <button class="biz-btn" id="codeEntrySubmit" style="margin-top:14px;">Devam Et</button>
+  </div>
+
+
+  <div class="menu-panel" id="musicPanel">
+    <div class="menu-panel-header">
+      <button class="menu-back" data-back>&larr;</button>
+      <h3>Müzik Seçimi</h3>
+    </div>
+    <div id="musicCategories"></div>
+    <a href="#" id="changeCode1" style="display:block; margin-top:16px; font-size:0.75rem; color:#8A93A0;">Kodu değiştir</a>
+  </div>
+
+  <div class="menu-panel" id="seatingPanel">
+    <div class="menu-panel-header">
+      <button class="menu-back" data-back>&larr;</button>
+      <h3>Oturma Planı</h3>
+    </div>
+    <div class="orchestra-badge">🎻 Orkestra</div>
+    <div class="stage-box">🎤 Sahne</div>
+    <div class="tables-wrap" id="tablesWrap"></div>
+  </div>
+</div>
+
+<section class="hero" id="anasayfa">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Lavanta Garden Park</span>
+    <h1>Hayalinizdeki Gün,<br>Güvenle Emanet Edilir</h1>
+    <p>Yılların deneyimi ve titiz organizasyon anlayışıyla, hayatınızın en özel gününde yanınızdayız. Her detay, güven ve zarafetle şekillenir.</p>
+    <a href="#iletisim" class="btn">Teklif Alın</a>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1200 70" preserveAspectRatio="none">
+    <path class="divider-line" d="M0,35 C150,10 300,60 450,35 C600,10 750,60 900,35 C1050,10 1200,60 1350,35"/>
+  </svg>
+</div>
+
+<section class="intro">
+  <span class="section-eyebrow">Hakkımızda</span>
+  <h2>Her Kutlama, Özenle Tasarlanır</h2>
+  <p>Lavanta Garden Park, düğün ve özel davetlerinizde konforu, zarafeti ve güveni bir araya getiren bir organizasyon anlayışı sunar. Farklı kapasitelerdeki salonlarımız, her ölçekteki kutlamaya uygun çözümler sunmak için tasarlandı. Deneyimli ekibimiz, planlamanın ilk adımından son detayına kadar sizinle birlikte çalışır.</p>
+</section>
+
+<section class="salons" id="salonlar">
+  <div class="salons-head">
+    <span class="section-eyebrow">Salonlarımız</span>
+    <h2>Her Kutlamaya Uygun Bir Alan</h2>
+  </div>
+
+  <div class="salon-card">
+    <div class="salon-img" style="background-image:url('salon-500.jpg');"></div>
+    <div class="salon-text">
+      <div class="capacity-row">
+        <div class="capacity"><span class="num">500</span><span class="label">Kişi Kapasitesi</span></div>
+      </div>
+      <h3>Lavanta Garden Balo Salonu</h3>
+      <p>Geniş ve ferah yapısıyla büyük ölçekli düğünler ve davetler için ideal bir seçenek sunan Lavanta Garden Balo Salonu, yüksek kapasitesine rağmen sıcak ve samimi bir atmosfer sunar. Sahne düzeni ve esnek yerleşim seçenekleriyle, hayalinizdeki görkemli organizasyonu gerçeğe dönüştürür.</p>
+    </div>
+  </div>
+
+  <div class="salon-card">
+    <div class="salon-img" style="background-image:url('salon-100.jpg');"></div>
+    <div class="salon-text">
+      <div class="capacity-row">
+        <div class="capacity"><span class="num">100</span><span class="label">Kişi Kapasitesi</span></div>
+      </div>
+      <h3>Zümrüt Bahçe Salonu</h3>
+      <p>Daha butik ve samimi kutlamalar için tasarlanan Zümrüt Bahçe Salonu, sade ama şık atmosferiyle küçük ölçekli düğünler, nişanlar ve özel davetler için mükemmel bir seçimdir. Yakın çevrenizle paylaşacağınız bu özel anlar, en ince ayrıntısına kadar özenle planlanır.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="iletisim">
+  <span class="section-eyebrow" style="color:var(--gold);">İletişime Geçin</span>
+  <h2>Hayalinizdeki Günü Birlikte Planlayalım</h2>
+  <p>Size özel paketler, tarih uygunluğu ve organizasyon detayları hakkında bilgi almak için bizimle iletişime geçin.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/905398490035?text=Merhaba%2C%20Lavanta%20Garden%20Park%20hakk%C4%B1nda%20teklif%20almak%20istiyorum." class="btn" target="_blank">WhatsApp Teklif Al</a>
+    <a href="mailto:tunahansener97@gmail.com" class="btn btn-outline">Bilgi Al</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Lavanta Garden Park</h4>
+      <p class="placeholder-note">Bursa'da 100 ve 500 kişilik salonlarımızla düğün, kına, sünnet, nişan ve kurumsal davetlere ev sahipliği yapıyoruz. Deneyimli ekibimizle her organizasyonu ilk adımdan son detayına kadar özenle planlıyoruz.</p>
+    </div>
+    <div>
+      <h4>İletişim</h4>
+      <p class="placeholder-note">Telefon: <a href="tel:+905398490035" style="color:#B8C0CC;">0539 849 00 35</a></p>
+      <p class="placeholder-note">E-posta: <a href="mailto:tunahansener97@gmail.com" style="color:#B8C0CC;">tunahansener97@gmail.com</a></p>
+      <p class="placeholder-note">Adres: Bursa</p>
+    </div>
+    <div>
+      <h4>Bizi Takip Edin</h4>
+      <p class="placeholder-note">Instagram: <a href="https://instagram.com/senertunaa" target="_blank" style="color:#B8C0CC;">@senertunaa</a></p>
+      <p class="placeholder-note">Facebook: [hesap linki]</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Copyright © 2026 Lavanta Garden Park. Tüm Hakları Saklıdır. &nbsp;·&nbsp; <a href="#" id="bizLoginTrigger" style="color:#5A6270; font-size:0.75rem;">İşletme Girişi</a>
+  </div>
+</footer>
+
+<!-- ============ İŞLETME GİRİŞİ ============ -->
+<div class="biz-overlay" id="bizLoginOverlay">
+  <button class="menu-back biz-close" id="bizLoginClose">&times;</button>
+  <div class="biz-login-box">
+    <h3>İşletme Girişi</h3>
+    <input type="text" id="bizUser" placeholder="Kullanıcı Adı">
+    <input type="password" id="bizPass" placeholder="Şifre">
+    <div class="biz-err" id="bizErr">Kullanıcı adı veya şifre hatalı.</div>
+    <button class="biz-btn" id="bizLoginSubmit">Giriş Yap</button>
+    <p class="placeholder-note" style="margin-top:14px; font-size:0.72rem;">Demo giriş: admin / 1234</p>
+  </div>
+</div>
+
+<!-- ============ İŞLETME PANELİ ============ -->
+<div class="biz-overlay" id="bizPanel">
+  <div class="biz-panel-header">
+    <h3>Lavanta Garden Park — İşletme Paneli</h3>
+    <button class="menu-back" id="bizLogout">&times;</button>
+  </div>
+  <div class="biz-panel-body">
+
+    <div class="biz-cal-nav">
+      <button id="calPrev">‹</button>
+      <span id="calLabel"></span>
+      <button id="calNext">›</button>
+    </div>
+    <div class="biz-cal-grid" id="calGrid"></div>
+    <div class="biz-legend"><span class="dot dolu"></span> Dolu &nbsp;&nbsp; <span class="dot bos"></span> Boş</div>
+
+    <h4 class="biz-subtitle">Kayıtlı Düğünler</h4>
+    <div id="weddingList"></div>
+  </div>
+</div>
+
+<!-- ============ DÜĞÜN EKLE/DÜZENLE ============ -->
+<div class="biz-overlay" id="weddingForm">
+  <div class="biz-panel-header">
+    <h3 id="wfTitle">Düğün Ekle</h3>
+    <button class="menu-back" id="wfClose">&times;</button>
+  </div>
+  <div class="biz-panel-body">
+    <input type="hidden" id="wfId">
+    <div id="wfCodeBox" style="display:none; margin-bottom:14px;">
+      <span class="biz-label" style="margin:0;">Müşteri Giriş Kodu</span>
+      <span class="wed-code" id="wfCodeDisplay"></span>
+    </div>
+    <label class="biz-label">Tarih</label>
+    <input type="text" id="wfDate" disabled>
+    <label class="biz-label">Gelin Adı Soyadı</label>
+    <input type="text" id="wfBride">
+    <label class="biz-label">Damat Adı Soyadı</label>
+    <input type="text" id="wfGroom">
+    <label class="biz-label">Paket</label>
+    <select id="wfPackage">
+      <option>Gold</option>
+      <option>Premium</option>
+      <option>Standart</option>
+    </select>
+    <label class="biz-label">Kişi Sayısı</label>
+    <input type="number" id="wfGuests">
+    <label class="biz-label">Not</label>
+    <textarea id="wfNote" rows="3"></textarea>
+
+    <h4 class="biz-subtitle">İletişim Bilgileri (WhatsApp için)</h4>
+    <label class="biz-label">Müşteri Telefonu</label>
+    <input type="text" id="wfPhoneCustomer" placeholder="05XX XXX XX XX">
+    <label class="biz-label">Kameraman Telefonu</label>
+    <input type="text" id="wfPhoneCamera" placeholder="05XX XXX XX XX">
+    <label class="biz-label">Pastacı Telefonu</label>
+    <input type="text" id="wfPhoneBaker" placeholder="05XX XXX XX XX">
+    <label class="biz-label">Orkestra Telefonu</label>
+    <input type="text" id="wfPhoneOrchestra" placeholder="05XX XXX XX XX">
+
+    <button class="biz-btn" id="wfSave">Kaydet</button>
+    <button class="biz-btn biz-btn-outline" id="wfDelete" style="display:none;">Düğünü Sil</button>
+
+    <div id="wfWaBox" style="display:none;">
+      <h4 class="biz-subtitle">Whatsapp Gönder</h4>
+      <div class="wa-row" data-role="customer">
+        <div><span class="wa-name">Müşteri</span><span class="wa-phone" id="waPhoneCustomer"></span></div>
+        <button class="wa-send-btn" data-role="customer">Gönder</button>
+      </div>
+      <div class="wa-row" data-role="camera">
+        <div><span class="wa-name">Kameraman</span><span class="wa-phone" id="waPhoneCamera"></span></div>
+        <button class="wa-send-btn" data-role="camera">Gönder</button>
+      </div>
+      <div class="wa-row" data-role="baker">
+        <div><span class="wa-name">Pastacı</span><span class="wa-phone" id="waPhoneBaker"></span></div>
+        <button class="wa-send-btn" data-role="baker">Gönder</button>
+      </div>
+      <div class="wa-row" data-role="orchestra">
+        <div><span class="wa-name">Orkestra</span><span class="wa-phone" id="waPhoneOrchestra"></span></div>
+        <button class="wa-send-btn" data-role="orchestra">Gönder</button>
+      </div>
+      <p class="placeholder-note" style="font-size:0.72rem; margin-top:10px;">Gönder'e basınca WhatsApp o kişiye özel, hazır doldurulmuş mesajla açılır. Son onay için WhatsApp içindeki gönder tuşuna basman yeterli.</p>
+    </div>
+
+    <div id="wfCustomerDataBox" style="display:none;">
+      <h4 class="biz-subtitle">Müşterinin Girdiği Bilgiler</h4>
+      <div id="wfMusicView"></div>
+      <div id="wfSeatingView"></div>
+    </div>
+
+    <div id="wfContractBox" style="display:none;">
+      <h4 class="biz-subtitle">Sözleşme</h4>
+      <button class="biz-btn biz-btn-outline" id="wfContractBtn">Sözleşmeyi Otomatik Hazırla</button>
+      <div class="contract-box" id="contractText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('scroll', function(){
+    var header = document.getElementById('mainHeader');
+    if(window.scrollY > 60){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var mobileMenuClose = document.getElementById('mobileMenuClose');
+
+  hamburgerBtn.addEventListener('click', function(){
+    mobileMenu.classList.add('open');
+  });
+  mobileMenuClose.addEventListener('click', function(){
+    mobileMenu.classList.remove('open');
+  });
+  document.querySelectorAll('.mobile-menu-list a:not(.menu-open-panel)').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
+<script>
+  /* ---- Panel açma/kapama + kod kontrolü ---- */
+  var pendingPanel = null;
+  document.querySelectorAll('.menu-open-panel').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var panelId = btn.getAttribute('data-panel');
+      var activeCode = localStorage.getItem('lgp_active_code');
+      if(!activeCode){
+        pendingPanel = panelId;
+        document.getElementById('codeEntryPanel').classList.add('open');
+        mobileMenu.classList.add('subopen');
+        return;
+      }
+      document.getElementById(panelId).classList.add('open');
+      mobileMenu.classList.add('subopen');
+    });
+  });
+  document.getElementById('codeEntrySubmit').addEventListener('click', function(){
+    var code = document.getElementById('codeEntryInput').value.trim().toUpperCase();
+    if(!code) return;
+    var weddings = JSON.parse(localStorage.getItem('lgp_weddings') || '[]');
+    var match = weddings.find(function(w){ return w.code === code; });
+    if(!match){
+      document.getElementById('codeEntryErr').classList.add('show');
+      return;
+    }
+    document.getElementById('codeEntryErr').classList.remove('show');
+    localStorage.setItem('lgp_active_code', code);
+    document.getElementById('codeEntryPanel').classList.remove('open');
+    if(pendingPanel){
+      document.getElementById(pendingPanel).classList.add('open');
+      renderMusic(); renderTables();
+    }
+  });
+  document.querySelectorAll('[data-back]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.closest('.menu-panel').classList.remove('open');
+      mobileMenu.classList.remove('subopen');
+    });
+  });
+  mobileMenuClose.addEventListener('click', function(){
+    document.querySelectorAll('.menu-panel.open').forEach(function(p){ p.classList.remove('open'); });
+    mobileMenu.classList.remove('subopen');
+  });
+
+  /* ---- Müzik listesi ---- */
+  var musicCats = [
+    {key:'giris', label:'Giriş Müziği'},
+    {key:'pasta', label:'Pasta Müziği'},
+    {key:'dans', label:'Dans Müziği'},
+    {key:'genel', label:'Genel Düğünde Çalınacaklar Listesi'}
+  ];
+  function activeCode(){ return localStorage.getItem('lgp_active_code') || 'DEMO'; }
+  var musicData = {};
+  function loadMusicData(){
+    musicData = JSON.parse(localStorage.getItem('lgp_music_'+activeCode()) || '{}');
+    musicCats.forEach(function(c){ if(!musicData[c.key]) musicData[c.key] = []; });
+  }
+  function saveMusic(){ localStorage.setItem('lgp_music_'+activeCode(), JSON.stringify(musicData)); }
+  loadMusicData();
+
+  function renderMusic(){
+    loadMusicData();
+    var wrap = document.getElementById('musicCategories');
+    wrap.innerHTML = '';
+    musicCats.forEach(function(c){
+      var box = document.createElement('div');
+      box.className = 'music-cat';
+      box.innerHTML =
+        '<div class="music-cat-head" data-cat="'+c.key+'">'+c.label+'<span class="arrow">›</span></div>'+
+        '<div class="music-cat-body">'+
+          '<div class="song-listbox" id="songs-'+c.key+'"></div>'+
+          '<div class="song-add">'+
+            '<input type="text" placeholder="Şarkı adı ekle" id="input-'+c.key+'">'+
+            '<button data-add="'+c.key+'">+</button>'+
+          '</div>'+
+        '</div>';
+      wrap.appendChild(box);
+      renderSongs(c.key);
+    });
+    wrap.querySelectorAll('.music-cat-head').forEach(function(h){
+      h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+    });
+    wrap.querySelectorAll('[data-add]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var key = btn.getAttribute('data-add');
+        var inp = document.getElementById('input-'+key);
+        var val = inp.value.trim();
+        if(!val) return;
+        musicData[key].push(val);
+        saveMusic();
+        inp.value = '';
+        renderSongs(key);
+      });
+    });
+  }
+  function renderSongs(key){
+    var box = document.getElementById('songs-'+key);
+    box.innerHTML = '';
+    musicData[key].forEach(function(song, i){
+      var row = document.createElement('div');
+      row.className = 'song-row';
+      row.innerHTML = '<span>'+song+'</span><button data-del="'+key+'" data-i="'+i+'">&times;</button>';
+      box.appendChild(row);
+    });
+    box.querySelectorAll('[data-del]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var key = b.getAttribute('data-del'), i = +b.getAttribute('data-i');
+        musicData[key].splice(i,1);
+        saveMusic();
+        renderSongs(key);
+      });
+    });
+  }
+  renderMusic();
+
+  /* ---- Oturma planı ---- */
+  var tableIds = [1,2,3,4,5];
+  var tablesData = {};
+  function loadTablesData(){
+    tablesData = JSON.parse(localStorage.getItem('lgp_tables_'+activeCode()) || '{}');
+    tableIds.forEach(function(id){ if(!tablesData[id]) tablesData[id] = []; });
+  }
+  function saveTables(){ localStorage.setItem('lgp_tables_'+activeCode(), JSON.stringify(tablesData)); }
+  loadTablesData();
+
+  function renderTables(){
+    loadTablesData();
+    var wrap = document.getElementById('tablesWrap');
+    wrap.innerHTML = '';
+    tableIds.forEach(function(id){
+      var box = document.createElement('div');
+      box.className = 'table-box';
+      box.innerHTML =
+        '<h4>Masa '+id+'</h4>'+
+        '<div class="guestbox" id="guests-'+id+'"></div>'+
+        '<button class="table-add-btn" data-openform="'+id+'">+</button>'+
+        '<div class="table-add-form" id="form-'+id+'">'+
+          '<input type="text" placeholder="İsim / yakınlık" id="tinput-'+id+'">'+
+          '<button data-addguest="'+id+'">✓</button>'+
+        '</div>';
+      wrap.appendChild(box);
+      renderGuests(id);
+    });
+    wrap.querySelectorAll('[data-openform]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.getElementById('form-'+btn.getAttribute('data-openform')).classList.toggle('open');
+      });
+    });
+    wrap.querySelectorAll('[data-addguest]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-addguest');
+        var inp = document.getElementById('tinput-'+id);
+        var val = inp.value.trim();
+        if(!val) return;
+        tablesData[id].push(val);
+        saveTables();
+        inp.value = '';
+        renderGuests(id);
+      });
+    });
+  }
+  function renderGuests(id){
+    var box = document.getElementById('guests-'+id);
+    box.innerHTML = '';
+    tablesData[id].forEach(function(name, i){
+      var tag = document.createElement('div');
+      tag.className = 'guest-tag';
+      tag.style.display = 'flex'; tag.style.justifyContent='space-between'; tag.style.alignItems='center';
+      tag.innerHTML = '<span>'+name+'</span><button data-delguest="'+id+'" data-i="'+i+'" style="background:transparent;border:none;color:#C97C7C;cursor:pointer;">&times;</button>';
+      box.appendChild(tag);
+    });
+    box.querySelectorAll('[data-delguest]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var id = b.getAttribute('data-delguest'), i = +b.getAttribute('data-i');
+        tablesData[id].splice(i,1);
+        saveTables();
+        renderGuests(id);
+      });
+    });
+  }
+  renderTables();
+
+  document.getElementById('changeCode1').addEventListener('click', function(e){
+    e.preventDefault();
+    localStorage.removeItem('lgp_active_code');
+    document.getElementById('musicPanel').classList.remove('open');
+    pendingPanel = 'musicPanel';
+    document.getElementById('codeEntryPanel').classList.add('open');
+  });
+</script>
+
+<script>
+  /* ===== İşletme Girişi ===== */
+  var bizLoginOverlay = document.getElementById('bizLoginOverlay');
+  var bizPanel = document.getElementById('bizPanel');
+  document.getElementById('bizLoginTrigger').addEventListener('click', function(e){
+    e.preventDefault();
+    bizLoginOverlay.classList.add('open');
+  });
+  document.getElementById('bizLoginClose').addEventListener('click', function(){
+    bizLoginOverlay.classList.remove('open');
+  });
+  document.getElementById('bizLoginSubmit').addEventListener('click', function(){
+    var u = document.getElementById('bizUser').value.trim();
+    var p = document.getElementById('bizPass').value.trim();
+    if(u === 'admin' && p === '1234'){
+      bizLoginOverlay.classList.remove('open');
+      bizPanel.classList.add('open');
+      renderCalendar();
+      renderWeddingList();
+    } else {
+      document.getElementById('bizErr').classList.add('show');
+    }
+  });
+  document.getElementById('bizLogout').addEventListener('click', function(){
+    bizPanel.classList.remove('open');
+  });
+
+  /* ===== Veri ===== */
+  var weddings = JSON.parse(localStorage.getItem('lgp_weddings') || '[]');
+  function saveWeddings(){ localStorage.setItem('lgp_weddings', JSON.stringify(weddings)); }
+  function findWedding(dateStr){ return weddings.find(function(w){ return w.date === dateStr; }); }
+
+  /* ===== Takvim ===== */
+  var calDate = new Date();
+  var dayNames = ['Pt','Sa','Ça','Pe','Cu','Ct','Pz'];
+  var monthNames = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+
+  function renderCalendar(){
+    var y = calDate.getFullYear(), m = calDate.getMonth();
+    document.getElementById('calLabel').textContent = monthNames[m] + ' ' + y;
+    var grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    dayNames.forEach(function(d){
+      var el = document.createElement('div'); el.className='dname'; el.textContent=d; grid.appendChild(el);
+    });
+    var firstDay = new Date(y,m,1).getDay();
+    var offset = (firstDay === 0) ? 6 : firstDay - 1;
+    var daysInMonth = new Date(y,m+1,0).getDate();
+    for(var i=0;i<offset;i++){
+      var e = document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e);
+    }
+    for(var d=1; d<=daysInMonth; d++){
+      var dateStr = y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+      var w = findWedding(dateStr);
+      var cell = document.createElement('div');
+      cell.className='cal-day';
+      cell.innerHTML = d + '<span class="dot '+(w?'dolu':'bos')+'"></span>';
+      cell.addEventListener('click', (function(dateStr, w){
+        return function(){ openWeddingForm(dateStr, w); };
+      })(dateStr, w));
+      grid.appendChild(cell);
+    }
+  }
+  document.getElementById('calPrev').addEventListener('click', function(){ calDate.setMonth(calDate.getMonth()-1); renderCalendar(); });
+  document.getElementById('calNext').addEventListener('click', function(){ calDate.setMonth(calDate.getMonth()+1); renderCalendar(); });
+
+  /* ===== Düğün Listesi ===== */
+  function renderWeddingList(){
+    var box = document.getElementById('weddingList');
+    box.innerHTML = '';
+    var sorted = weddings.slice().sort(function(a,b){ return a.date.localeCompare(b.date); });
+    if(sorted.length === 0){
+      box.innerHTML = '<p class="placeholder-note">Henüz düğün eklenmedi.</p>';
+      return;
+    }
+    sorted.forEach(function(w){
+      if(!w.code){ w.code = (w.bride[0]+w.groom[0]).toUpperCase() + w.date.split('-')[2]; }
+      var row = document.createElement('div');
+      row.className = 'wed-row';
+      row.innerHTML = '<span>'+w.bride+' & '+w.groom+' <span class="tag">'+w.package+'</span></span><span>'+w.date+'</span>';
+      row.addEventListener('click', function(){ openWeddingForm(w.date, w); });
+      box.appendChild(row);
+    });
+  }
+
+  /* ===== Düğün Ekle / Düzenle ===== */
+  var weddingForm = document.getElementById('weddingForm');
+  function openWeddingForm(dateStr, w){
+    document.getElementById('wfDate').value = dateStr;
+    document.getElementById('wfId').value = w ? w.date : '';
+    document.getElementById('wfBride').value = w ? w.bride : '';
+    document.getElementById('wfGroom').value = w ? w.groom : '';
+    document.getElementById('wfPackage').value = w ? w.package : 'Gold';
+    document.getElementById('wfGuests').value = w ? w.guests : '';
+    document.getElementById('wfNote').value = w ? w.note : '';
+    document.getElementById('wfPhoneCustomer').value = w ? (w.phoneCustomer||'') : '';
+    document.getElementById('wfPhoneCamera').value = w ? (w.phoneCamera||'') : '';
+    document.getElementById('wfPhoneBaker').value = w ? (w.phoneBaker||'') : '';
+    document.getElementById('wfPhoneOrchestra').value = w ? (w.phoneOrchestra||'') : '';
+    document.getElementById('wfTitle').textContent = w ? 'Düğün Detayı' : 'Düğün Ekle';
+    document.getElementById('wfDelete').style.display = w ? 'block' : 'none';
+    document.getElementById('wfContractBox').style.display = w ? 'block' : 'none';
+    document.getElementById('contractText').style.display = 'none';
+    document.getElementById('wfWaBox').style.display = w ? 'block' : 'none';
+    if(w){
+      fillWaBox(w);
+      document.getElementById('wfCodeBox').style.display = 'block';
+      document.getElementById('wfCodeDisplay').textContent = w.code;
+      document.getElementById('wfCustomerDataBox').style.display = 'block';
+      renderCustomerDataReadonly(w.code);
+    } else {
+      document.getElementById('wfCodeBox').style.display = 'none';
+      document.getElementById('wfCustomerDataBox').style.display = 'none';
+    }
+    weddingForm.classList.add('open');
+  }
+  function renderCustomerDataReadonly(code){
+    var m = JSON.parse(localStorage.getItem('lgp_music_'+code) || '{}');
+    var mBox = document.getElementById('wfMusicView');
+    var labels = {giris:'Giriş Müziği', pasta:'Pasta Müziği', dans:'Dans Müziği', genel:'Genel Liste'};
+    var mHtml = '';
+    Object.keys(labels).forEach(function(k){
+      var list = (m[k]||[]);
+      mHtml += '<div class="biz-readonly-box"><span class="cat">'+labels[k]+'</span>'+(list.length ? list.join(', ') : '—')+'</div>';
+    });
+    mBox.innerHTML = mHtml || '<p class="placeholder-note">Henüz müzik eklenmedi.</p>';
+
+    var t = JSON.parse(localStorage.getItem('lgp_tables_'+code) || '{}');
+    var sBox = document.getElementById('wfSeatingView');
+    var sHtml = '';
+    [1,2,3,4,5].forEach(function(id){
+      var g = (t[id]||[]);
+      sHtml += '<div class="biz-readonly-box"><span class="cat">Masa '+id+'</span>'+(g.length ? g.join(', ') : '—')+'</div>';
+    });
+    sBox.innerHTML = sHtml;
+  }
+  document.getElementById('wfClose').addEventListener('click', function(){
+    weddingForm.classList.remove('open');
+  });
+  document.getElementById('wfSave').addEventListener('click', function(){
+    var dateStr = document.getElementById('wfDate').value;
+    var data = {
+      date: dateStr,
+      bride: document.getElementById('wfBride').value.trim(),
+      groom: document.getElementById('wfGroom').value.trim(),
+      package: document.getElementById('wfPackage').value,
+      guests: document.getElementById('wfGuests').value,
+      note: document.getElementById('wfNote').value.trim(),
+      phoneCustomer: document.getElementById('wfPhoneCustomer').value.trim(),
+      phoneCamera: document.getElementById('wfPhoneCamera').value.trim(),
+      phoneBaker: document.getElementById('wfPhoneBaker').value.trim(),
+      phoneOrchestra: document.getElementById('wfPhoneOrchestra').value.trim()
+    };
+    if(!data.bride || !data.groom){ alert('Lütfen gelin ve damat adını girin.'); return; }
+    var idx = weddings.findIndex(function(x){ return x.date === dateStr; });
+    if(idx > -1){
+      data.code = weddings[idx].code;
+      weddings[idx] = data;
+    } else {
+      var d = new Date(dateStr);
+      data.code = (data.bride[0]+data.groom[0]).toUpperCase() + String(d.getDate()).padStart(2,'0');
+      weddings.push(data);
+    }
+    saveWeddings();
+    weddingForm.classList.remove('open');
+    renderCalendar();
+    renderWeddingList();
+    openWeddingForm(dateStr, data);
+  });
+  document.getElementById('wfDelete').addEventListener('click', function(){
+    var dateStr = document.getElementById('wfDate').value;
+    weddings = weddings.filter(function(x){ return x.date !== dateStr; });
+    saveWeddings();
+    weddingForm.classList.remove('open');
+    renderCalendar();
+    renderWeddingList();
+  });
+
+  /* ===== Sözleşme ===== */
+  var packageContent = {
+    'Gold':'Salon, Yemek, Pasta, Orkestra, Fotoğraf, Kamera, Organizasyon',
+    'Premium':'Salon, Yemek, Pasta, Orkestra, Fotoğraf',
+    'Standart':'Salon, Yemek, Pasta'
+  };
+  document.getElementById('wfContractBtn').addEventListener('click', function(){
+    var bride = document.getElementById('wfBride').value.trim();
+    var groom = document.getElementById('wfGroom').value.trim();
+    var pkg = document.getElementById('wfPackage').value;
+    var date = document.getElementById('wfDate').value;
+    var guests = document.getElementById('wfGuests').value;
+    var note = document.getElementById('wfNote').value.trim();
+    var text = 'Gelin: '+bride+'\nDamat: '+groom+'\nDüğün Tarihi: '+date+'\nSalon: Lavanta Garden Park\nPaket: '+pkg+' Düğün Paketi\nHizmetler: '+packageContent[pkg]+'\nMisafir Sayısı: '+(guests||'-')+'\nÖzel Şartlar: '+(note||'—')+'\n\n(Bu demo sözleşmede fiyat/ödeme bilgisi yer almaz. Hukuki e-imza bu aşamada yoktur.)';
+    var box = document.getElementById('contractText');
+    box.textContent = text;
+    box.style.display = 'block';
+  });
+
+  /* ===== Whatsapp Gönder ===== */
+  function fillWaBox(w){
+    document.getElementById('waPhoneCustomer').textContent = w.phoneCustomer || 'Telefon girilmedi';
+    document.getElementById('waPhoneCamera').textContent = w.phoneCamera || 'Telefon girilmedi';
+    document.getElementById('waPhoneBaker').textContent = w.phoneBaker || 'Telefon girilmedi';
+    document.getElementById('waPhoneOrchestra').textContent = w.phoneOrchestra || 'Telefon girilmedi';
+  }
+  function waMessage(role, w){
+    var dateStr = w.date;
+    if(role === 'customer'){
+      return 'Merhaba '+w.bride+' & '+w.groom+', '+dateStr+' tarihli düğününüze 1 hafta kaldı! Müzik ve oturma planınızı düzenlemek için site menüsünden düğün kodunuzu kullanabilirsiniz: '+w.code;
+    }
+    if(role === 'camera'){
+      return 'Merhaba, '+dateStr+' tarihinde '+w.bride+' & '+w.groom+' düğünü için çekim programınızı kontrol ediniz. Salon: Lavanta Garden Park.';
+    }
+    if(role === 'baker'){
+      return 'Merhaba, '+dateStr+' düğünü için pasta hazırlık durumunu kontrol ediniz. Paket: '+w.package+'.';
+    }
+    if(role === 'orchestra'){
+      return 'Merhaba, '+dateStr+' düğünü için müzik programınızı hazırlayınız.';
+    }
+    return '';
+  }
+  document.querySelectorAll('.wa-send-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var role = btn.getAttribute('data-role');
+      var dateStr = document.getElementById('wfDate').value;
+      var w = weddings.find(function(x){ return x.date === dateStr; });
+      if(!w) return;
+      var phoneMap = {customer:w.phoneCustomer, camera:w.phoneCamera, baker:w.phoneBaker, orchestra:w.phoneOrchestra};
+      var phone = (phoneMap[role]||'').replace(/[^0-9]/g,'');
+      if(!phone){ alert('Bu kişi için telefon numarası girilmemiş.'); return; }
+      if(phone.startsWith('0')) phone = '90' + phone.substring(1);
+      var msg = encodeURIComponent(waMessage(role, w));
+      window.open('https://wa.me/'+phone+'?text='+msg, '_blank');
+    });
+  });
+</script>
+
+</body>
+</html>
